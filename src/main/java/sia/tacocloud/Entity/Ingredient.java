@@ -1,19 +1,21 @@
 package sia.tacocloud.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.*;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
+
+import java.beans.Transient;
 
 
 @Data
-@Entity
-@RequiredArgsConstructor
+@Table("ingredients")
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
 public class Ingredient {
-    @Id
-    private final String id;
-    private final String name;
-    private final Type type;
+    @PrimaryKey
+    private String id;
+    private String name;
+    private Type type;
 
     public enum Type {
         WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
