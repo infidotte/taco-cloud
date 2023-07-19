@@ -1,4 +1,18 @@
 spring:
   datasource:
-    generate-unique-name: false
-    name: tacocloud
+    url: jdbc:postgresql://localhost:5432/tacocloud
+    username: postgres
+    password: 1423
+  jpa:
+    hibernate:
+      ddl-auto: create
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: 9ecb5b6781123b919e6e
+            client-secret: 8c2788bf9878204bdbc9a46250ebf9586dae74b4
+            scope:
+              - user:email
+              - read:user
